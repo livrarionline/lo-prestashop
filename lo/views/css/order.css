@@ -1,0 +1,50 @@
+/**
+ * NOTICE OF LICENSE
+ *
+ * This file is licenced under the Software License Agreement.
+ * With the purchase or the installation of the software in your application
+ * you accept the licence agreement.
+ *
+ * You must not modify, adapt or create derivative works of this source code.
+ *
+ * @author    Livrari online <support@livrarionline.ro>
+ * @copyright 2018 Livrari online
+ * @license   LICENSE.txt
+ */
+
+#get-awb {
+    display: block;
+    float: right;
+    margin-top: 10px;
+    border-radius: 3px;
+    border: 0;
+    background-color: #40c9ed;
+    color: #fff;
+    padding: 4px 6px;
+}
+.LoOrderError, .LoOrderSuccess {
+    display: block;
+    margin-top: 20px;
+}
+.get-awb-loader {
+    border: 3px solid #f3f3f3; /* Light grey */
+    border-top: 3px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 13px;
+    height: 13px;
+    animation: lo_spin 2s linear infinite;
+    display: inline-block;
+    margin-top: 2px;
+    margin-right: 5px;
+    vertical-align: top;
+}
+@keyframes lo_spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+.delivery_hours {
+    display: none;
+}
+#awbs > li {
+    margin-bottom: 10px;
+}

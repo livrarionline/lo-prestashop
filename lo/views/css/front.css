@@ -1,0 +1,101 @@
+/**
+ * NOTICE OF LICENSE
+ *
+ * This file is licenced under the Software License Agreement.
+ * With the purchase or the installation of the software in your application
+ * you accept the licence agreement.
+ *
+ * You must not modify, adapt or create derivative works of this source code.
+ *
+ * @author    Livrari online <support@livrarionline.ro>
+ * @copyright 2018 Livrari online
+ * @license   LICENSE.txt
+ */
+
+.btn-smart-locker {
+    background-color: #3498db;
+    color: #fff;
+    padding: 5px 10px;
+    font-size: 14px;
+    text-transform: uppercase;
+    border-radius: 3px;
+    display: inline-block;
+    margin-top: 5px;
+}
+.btn-smart-locker:focus, .btn-smart-locker:hover {
+    background-color: #2980b9;
+    color: #fff !important;
+}
+#lo_smart_lockers_area {
+    margin-bottom: 15px;
+    text-align: center;
+    color: #000;
+    border-bottom: 1px dashed #ccc;
+    padding-bottom: 10px;
+}
+.lockers_form {
+    padding-top: 10px;
+    text-align: center;
+}
+.lockers_form .form-group {
+    display: inline-block;
+    text-align: center;
+}
+#lockers_container {
+    height: 100%;
+}
+#lockers_gmap {
+    width: 100%;
+    height: 90%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    position: relative;
+}
+#lockers_gmap.only_selected_locker {
+    height: 400px;
+}
+
+#lockers_gmap * {
+    box-sizing: border-box;
+    line-height: 1.2;
+}
+#lockers_gmap .infowindow-title {
+    font-size: 14px;
+    font-weight: 700;
+    margin: 0 0 10px;
+}
+#lockers_gmap .infowindow-body {
+    font-size: 12px;
+}
+#lockers_gmap .infowindow-body p {
+    line-height: 1.2;
+    margin: 0;
+}
+#lockers_gmap .infowindow-body b {
+    font-weight: 700;
+}
+#lockers_gmap .infowindow-body hr {
+    margin: 8px 0;
+}
+#lockers_gmap .infowindow-body {
+    text-align: center;
+}
+.smart_lockers_selected {
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+.smart_lockers_selected > span {
+    color: #3498db;
+}
+#lo_locker_order-confirmation {
+    margin-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+    #lockers_gmap .infowindow {
+        width: 350px;
+    }
+}

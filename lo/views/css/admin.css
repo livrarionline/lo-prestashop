@@ -1,0 +1,27 @@
+/**
+ * NOTICE OF LICENSE
+ *
+ * This file is licenced under the Software License Agreement.
+ * With the purchase or the installation of the software in your application
+ * you accept the licence agreement.
+ *
+ * You must not modify, adapt or create derivative works of this source code.
+ *
+ * @author    Livrari online <support@livrarionline.ro>
+ * @copyright 2018 Livrari online
+ * @license   LICENSE.txt
+ */
+
+.national_field_form-wrapper {
+    margin-bottom: 20px;
+}
+.modifyprice_area select, .modifyprice_area input {
+    width: auto !important;
+    display: inline-block !important;
+}
+@media(min-width: 992px) {
+    .national_field_form-wrapper {
+        width: 49%;
+        display: inline-block;
+    }
+}
