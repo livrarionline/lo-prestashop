@@ -31,7 +31,7 @@ class LO extends Module
 		$this->name = 'lo';
 		$this->tab = 'shipping_logistics';
 
-		$this->version = '2.1.5';
+		$this->version = '2.1.6';
 		$this->author = 'Livrari Online';
 		$this->need_instance = 1;
 		$this->bootstrap = true;
@@ -59,7 +59,11 @@ class LO extends Module
 			!$this->registerHook('displayHeader') ||
 			!$this->registerHook('displayAdminOrder') ||
 			!$this->registerHook('displayOrderConfirmation') ||
-			!$this->registerHook('actionOrderStatusUpdate')) {
+			!$this->registerHook('actionOrderStatusUpdate') ||
+			!$this->registerHook('header') ||
+			!$this->registerHook('backOfficeHeader') ||
+			!$this->registerHook('displayBackOfficeHeader'))
+		{
 			return false;
 		}
 
@@ -838,8 +842,7 @@ class LO extends Module
 			return $order->total_shipping;
 		}
 
-		if ($context->controller->php_self=='cart' || (!empty($context->controller->module) && $context->controller->module->name=='ps_shoppingcart'))
-		{
+		if ($context->controller->php_self == 'cart' || (!empty($context->controller->module) && $context->controller->module->name == 'ps_shoppingcart')) {
 			return 0;
 		}
 
@@ -924,7 +927,7 @@ class LO extends Module
 						}
 						$currency = new Currency($order->id_currency);
 						$currency_iso = $currency->iso_code;
-						$total_weight = number_format((float)$order->getTotalWeight()?:1, 2, '.', '');
+						$total_weight = number_format((float)$order->getTotalWeight() ?: 1, 2, '.', '');
 
 						$id_address = (int)$order->id_address_delivery;
 						$address = new Address($id_address);
@@ -964,7 +967,7 @@ class LO extends Module
 							'id_carrier_reference'   => $carrier->id_reference,
 							'order_message'          => $order_message,
 							'order_reference'        => $order->reference,
-							'products_value'         => round((float)$order->getTotalProductsWithTaxes(),2),
+							'products_value'         => round((float)$order->getTotalProductsWithTaxes(), 2),
 							'currency_iso'           => $currency_iso,
 							'pickup_address'         => self::getPickupAddress(),
 							'total_weight'           => $total_weight,
@@ -973,7 +976,7 @@ class LO extends Module
 							'smartlocker_service_id' => self::$lockers_service_id,
 							'lockers'                => self::getLockersData(false, true),
 							'id_selected_locker'     => self::getSelectedLocker($order->id_cart),
-							'ramburs'                => $order->module=='plationline' ? 0 : round((float)$order->getTotalPaid(),2),
+							'ramburs'                => $order->module == 'plationline' ? 0 : round((float)$order->getTotalPaid(), 2),
 						));
 						return $this->display(__FILE__, 'views/templates/admin/order.tpl');
 					}
@@ -1005,7 +1008,7 @@ class LO extends Module
 		foreach ($parents as $key => $value) {
 			$exists = true;
 			foreach ($searched as $skey => $svalue) {
-				$exists = ($exists && IsSet($parents[$key][$skey]) && $parents[$key][$skey] == $svalue);
+				$exists = ($exists && isset($parents[$key][$skey]) && $parents[$key][$skey] == $svalue);
 			}
 			if ($exists) {
 				$keys[] = $key;

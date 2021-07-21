@@ -12,12 +12,14 @@
 * @license   LICENSE.txt
 *}
 
-<div id="LoAwbsPanel" class="panel">
-    <div class="panel-heading">
-        <i class="icon-carrier"></i> {l s='Livrari Online' mod='lo'}
+<div id="LoAwbsPanel" class="card">
+    <div class="card-header">
+        <h3 class="card-header-title">
+            <i class="icon-carrier"></i> {l s='Livrari Online' mod='lo'}
+        </h3>
     </div>
-    <div id="lo-awbs">
-        <p>{l s='AWBs created at %s using %s:' mod='lo' sprintf=[$awbs_date, $service]}</p>
+    <div class="col-12" id="lo-awbs">
+        <p><br/>{l s='AWBs created at %s using %s:' mod='lo' sprintf=[$awbs_date, $service]}</p>
         <ul id='awbs'>
             {foreach $awbs as $awb}
                 <li data-awb="{$awb.awb|escape:'htmlall':'UTF-8'}">{$awb.awb|escape:'htmlall':'UTF-8'} -
