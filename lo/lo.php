@@ -717,6 +717,7 @@ class LO extends Module
 	public function printAwbsTpl($id_order)
 	{
 		$awbs = self::getAwbsForOrder($id_order);
+		$id_carrier = (new Order((int)$id_order))->id_carrier;
 		if (!$awbs) {
 			return false;
 		}
@@ -727,6 +728,7 @@ class LO extends Module
 			'service'   => $service,
 			'awbs'      => $awbs,
 			'f_login'   => Configuration::get('LO_LOGINID'),
+			'id_carrier'   => $id_carrier,
 		));
 		return $this->display(__FILE__, 'views/templates/admin/order_awbs.tpl');
 	}
@@ -841,7 +843,7 @@ class LO extends Module
 			$order = new Order((int)Tools::getValue('id_order'));
 			return $order->total_shipping;
 		}
-
+		$context = Context::getContext();
 		if ($context->controller->php_self == 'cart' || (!empty($context->controller->module) && $context->controller->module->name == 'ps_shoppingcart')) {
 			return 0;
 		}

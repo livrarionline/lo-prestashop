@@ -194,17 +194,11 @@ $(document).ready(function() {
         e.preventDefault();
         var $this = $(this);
         var awb = $this.parent().data('awb');
-
-        $('input[name="tracking_number"], #shipping_tracking_number').val(awb);
-        $('.shipping_number_show').text(awb);
-        $('button[name="submitShippingNumber"]').click();
-        if ($(document).find('#modal-shipping form').length) {
-            var data_id_carrier = $('.edit_shipping_link').data('id-carrier');
-            var data_id_order_carrier = $('.edit_shipping_link').data('id-order-carrier');
-            $('#shipping_carrier').val(data_id_carrier);
-            $('#id_order_carrier').val(data_id_order_carrier);
-            $('#modal-shipping form').submit();
-        }
+        var id_carrier = $this.parent().data('id-carrier');
+        $('.js-update-shipping-btn').trigger('click');
+        $('#update_order_shipping_tracking_number').val(awb);
+        $('#update_order_shipping_new_carrier_id').val(id_carrier);
+        $('form[name="update_order_shipping"]').submit();
     });
 
     $(document).on('click', '#adauga-pachet', function(){
