@@ -844,7 +844,7 @@ class LO extends Module
 			return $order->total_shipping;
 		}
 		$context = Context::getContext();
-        if ($context->controller->php_self != 'cart' || (!empty($context->controller->module) && $context->controller->module->name != 'ps_shoppingcart')) {
+        if ( !( in_array($context->controller->php_self, array('cart', 'order')) || in_array(($context->controller->module->name?:''), array('ps_shoppingcart','thecheckout')))) {
             return false;
         }
 
