@@ -844,9 +844,9 @@ class LO extends Module
 			return $order->total_shipping;
 		}
 		$context = Context::getContext();
-		if ($context->controller->php_self == 'cart' || (!empty($context->controller->module) && $context->controller->module->name == 'ps_shoppingcart')) {
-			return 0;
-		}
+        if ($context->controller->php_self != 'cart' || (!empty($context->controller->module) && $context->controller->module->name != 'ps_shoppingcart')) {
+            return false;
+        }
 
 		$servicii_nationale = Tools::jsonDecode(Configuration::get('LO_NATIONAL_FIELDS'), true);
 		$address = new Address($params->id_address_delivery);
@@ -1111,7 +1111,7 @@ class LO extends Module
 		$f_request_awb['destinatar'] = array(
 			'first_name'   => $address->firstname,                                         //Obligatoriu
 			'last_name'    => $address->lastname,                                              //Obligatoriu
-			'email'        => $customer->email,                                //Obligatoriu
+			'email'        => $customer->email?:'',                                //Obligatoriu
 			'phone'        => $address->phone ?: '',                                                 //phone sau mobile Obligatoriu
 			'mobile'       => $address->phone_mobile ?: '',
 			'lang'         => 'ro',                                                //Obligatoriu ro/en
