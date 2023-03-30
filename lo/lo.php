@@ -843,10 +843,10 @@ class LO extends Module
 			$order = new Order((int)Tools::getValue('id_order'));
 			return $order->total_shipping;
 		}
-		$context = Context::getContext();
+		/*$context = Context::getContext();
         if ( !( in_array($context->controller->php_self, array('cart', 'order')) || in_array(($context->controller->module->name?:''), array('ps_shoppingcart','thecheckout')))) {
             return false;
-        }
+        }*/
 
 		$servicii_nationale = Tools::jsonDecode(Configuration::get('LO_NATIONAL_FIELDS'), true);
 		$address = new Address($params->id_address_delivery);
