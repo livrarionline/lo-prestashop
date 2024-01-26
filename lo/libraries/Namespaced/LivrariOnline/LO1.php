@@ -702,7 +702,7 @@ class LO1
     // ISSN UPDATE ORDER STATUS
     private function run_issn()
     {
-        $this->module = Module::getInstanceByName('lo');
+        $this->module = \Module::getInstanceByName('lo');
         if (!\Tools::getValue('F_CRYPT_MESSAGE_ISSN')) {
             die('F_CRYPT_MESSAGE_ISSN nu a fost trimis');
         }

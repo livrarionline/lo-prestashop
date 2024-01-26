@@ -25,7 +25,7 @@
                 <li data-id-carrier="{$id_carrier|escape:'htmlall':'UTF-8'}" data-awb="{$awb.awb|escape:'htmlall':'UTF-8'}">{$awb.awb|escape:'htmlall':'UTF-8'} -
                     <a class="lo_awb_set_trackingnumber btn button btn-primary" href="#">{l s='Set as Tracking number' mod='lo'}</a>
                     <a class="lo_awb_tracking btn button btn-info" href="#">{l s='Tracking' mod='lo'}</a>
-                    <a class="btn button btn-success" href="http://api.livrarionline.ro/Lobackend_print/PrintAwb.aspx?f_login={$f_login|escape:'htmlall':'UTF-8'}&awb={$awb.awb|escape:'htmlall':'UTF-8'}" target="_blank">{l s='Print' mod='lo'}</a>
+                    <a class="btn button btn-success" href="https://api.livrarionline.ro/Lobackend_print/PrintAwb.aspx?f_login={$f_login|escape:'htmlall':'UTF-8'}&awb={$awb.awb|escape:'htmlall':'UTF-8'}" target="_blank">{l s='Print' mod='lo'}</a>
                     {if $awb.f_statusid < 300}
                         <a class="lo_awb_cancel btn button btn-danger" href="#">{l s='Cancel AWB/Return delivery' mod='lo'}</a>
                     {else}

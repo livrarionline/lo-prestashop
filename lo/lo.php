@@ -1153,7 +1153,7 @@ class LO extends Module
 
 		$raspuns = $lo->EstimeazaPretServicii($f_request_awb);
 
-		if ($raspuns->status == 'error') {
+		if (!empty($raspuns->status) && $raspuns->status == 'error') {
 			return false;
 		}
 
