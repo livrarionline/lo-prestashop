@@ -27,11 +27,11 @@
     color: #fff !important;
 }
 #lo_smart_lockers_area {
-    margin-bottom: 15px;
+    margin-top: 10px;
     text-align: center;
     color: #000;
-    border-bottom: 1px dashed #ccc;
-    padding-bottom: 10px;
+    border-top: 1px dashed #ccc;
+    padding-top: 10px;
 }
 .lockers_form {
     padding-top: 10px;
@@ -85,7 +85,7 @@
     display: block;
     font-size: 16px;
     font-weight: bold;
-    margin-top: 10px;
+    margin: 10px 0 0 0;
 }
 .smart_lockers_selected > span {
     color: #3498db;
