@@ -125,7 +125,7 @@ class LO extends Module
             `dp_indicatii` text,
             `termosensibil` tinyint(1) NOT NULL DEFAULT "0",
             `img_indicatii` varchar(2000) DEFAULT "",
-            `img_indicatii` varchar(2000) DEFAULT "",
+            `img_pachetomat` varchar(2000) DEFAULT "",
             PRIMARY KEY (`dp_id`)
         ) ENGINE=' . _MYSQL_ENGINE_ . ' DEFAULT CHARSET=utf8;';
 
